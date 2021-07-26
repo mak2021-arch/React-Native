@@ -54,7 +54,7 @@ export default class App extends Component<{}> {
           style={styles.myText}
           onChangeText={fname => this.setState({fname})}
         />
-
+        <View style={styles.textbox}>
         <TextInput
           placeholder="E-Mail"
           style={styles.myText}
@@ -94,6 +94,7 @@ export default class App extends Component<{}> {
           </Text>
         </TouchableOpacity>
       </View>
+      </View>
     );
   }
 }
@@ -103,6 +104,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
+  },
+    textbox: {
+    top:50,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
    image: {
     flex: 1,
