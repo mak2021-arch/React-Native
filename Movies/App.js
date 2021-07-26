@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable prettier/prettier */
 /* eslint-disable eqeqeq */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
@@ -6,6 +8,7 @@ import React, {Component} from 'react';
 import {
   StyleSheet,
   ImageBackground,
+  Image,
   Text,
   View,
   TextInput,
@@ -22,8 +25,8 @@ export default class App extends Component<{}> {
     };
   }
   myFun = () => {
-    const {fname, lname, password} = this.state;
-    if (fname == '') {
+    const {name, lname, password} = this.state;
+    if (name == '') {
       this.setState({Error: 'please fill the first name'});
     } else if (lname == '') {
       this.setState({Error: 'please fill the last name'});
@@ -37,16 +40,15 @@ export default class App extends Component<{}> {
   };
   render() {
     return (
-      <View>
-       <ImageBackground source={require('../Movies/images/register_top.png')}
-         resizeMode="cover" style={styles.image}>
-        <Text>
-          {this.state.Error}
-        </Text>
+      <View style={styles.container}>
+        <ImageBackground
+          source={require('../Movies/images/register_top.png')}
+          resizeMode="stretch"
+          style={styles.image}>
+        <Image source={require('../Movies/images/logo (1).png')}>
+        </Image>
         </ImageBackground>
-        </View>
-        
-        <View style={styles.container}>
+        <Text>{this.state.Error}</Text>
         <TextInput
           placeholder="full Name"
           style={styles.myText}
@@ -56,7 +58,7 @@ export default class App extends Component<{}> {
         <TextInput
           placeholder="E-Mail"
           style={styles.myText}
-          onChangeText={lname => this.setState({lname})}
+          onChangeText={email => this.setState({email})}
         />
 
         <TextInput
@@ -73,13 +75,23 @@ export default class App extends Component<{}> {
 
         <TouchableOpacity
           onPress={this.myFun}
-          style={{backgroundColor: '#FF8C00', padding: 15, width: 350, borderRadius: 40, justifyContent:'center',alignItems:'center'}}>
-          <Text style={{
+          style={{
+            backgroundColor: '#FF8C00',
+            borderWidth: 1,
+            margin: 10,
+            padding: 10,
+            width: '90%',
+            borderRadius: 40,
+          }}>
+          <Text
+            style={{
               color: 'white',
               textAlign: 'center',
               fontSize: 15,
               fontWeight: 'bold',
-            }}>SIGNUP</Text>
+            }}>
+            SIGNUP
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -92,19 +104,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right:0,
+  },
+
   myText: {
     borderWidth: 1,
     borderColor: '#ccc',
     margin: 10,
     padding: 10,
     width: '90%',
-    borderRadius : 40,
+    borderRadius: 40,
   },
-  image: {
-  position:'absolute',
-  left: 0,
-  top: 0,
-  right: 0,
-  },
-
 });
