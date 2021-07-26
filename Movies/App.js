@@ -45,7 +45,7 @@ export default class App extends Component<{}> {
           source={require('../Movies/images/register_top.png')}
           resizeMode="stretch"
           style={styles.image}>
-        <Image source={require('../Movies/images/logo (1).png')}>
+        <Image source={require('../Movies/images/image logo.png')}>
         </Image>
         </ImageBackground>
         <Text>{this.state.Error}</Text>
@@ -104,15 +104,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
-  image: {
+   image: {
     flex: 1,
     justifyContent: 'center',
     position: 'absolute',
+    height: '65%',
     top: 0,
     left: 0,
     right:0,
   },
-
+  logo:{
+    justifyContent:'center',
+    alignContent:'center',
+    height: 150,
+    width: 150,
+  },
   myText: {
     borderWidth: 1,
     borderColor: '#ccc',

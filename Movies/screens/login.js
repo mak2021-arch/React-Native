@@ -29,7 +29,7 @@ export default class App extends Component<{}> {
           source={require('../images/register_top.png')}
           resizeMode="stretch"
           style={styles.image}>
-        <Image source={require('../images/logo.png')}>
+        <Image source={require('../images/image logo.png')}>
         </Image>
         </ImageBackground>
         <Text>{this.state.Error}</Text>
@@ -81,11 +81,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     position: 'absolute',
+    height: '65%',
     top: 0,
     left: 0,
     right:0,
   },
 
+  logo:{
+    justifyContent:'center',
+    alignContent:'center',
+    height: 150,
+    width: 150,
+  },
   myText: {
     borderWidth: 1,
     borderColor: '#ccc',
