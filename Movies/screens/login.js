@@ -22,6 +22,19 @@ export default class App extends Component<{}> {
       password: '',
     };
   }
+
+    myFun = () => {
+    const {email, password} = this.state;
+    if (email == '') {
+      this.setState({Error: 'please fill correct email'});
+    } else if (password == '') {
+      this.setState({Error: 'please fill the password'});
+    } else if (password.length < 6) {
+      this.setState({Error: 'Enter correct minimum 6 digit password'});
+    } else {
+      this.setState({Error: 'You are Logged in successfully'});
+    }
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -29,9 +42,9 @@ export default class App extends Component<{}> {
           source={require('../images/register_top.png')}
           resizeMode="stretch"
           style={styles.image}>
+        </ImageBackground>
         <Image source={require('../images/image logo.png')}>
         </Image>
-        </ImageBackground>
         <Text>{this.state.Error}</Text>
 
         <TextInput
@@ -87,11 +100,12 @@ const styles = StyleSheet.create({
     right:0,
   },
 
-  logo:{
-    justifyContent:'center',
+ logo:{
+    top: 65,
+    justifyContent: 'center',
     alignContent:'center',
-    height: 150,
-    width: 150,
+    height: 170,
+    width: 170,
   },
   myText: {
     borderWidth: 1,

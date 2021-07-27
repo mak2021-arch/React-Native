@@ -19,21 +19,26 @@ export default class App extends Component<{}> {
   constructor(props) {
     super(props);
     this.state = {
-      fname: '',
-      lname: '',
+      name: '',
+      email: '',
+      number: '',
       password: '',
     };
   }
   myFun = () => {
-    const {name, lname, password} = this.state;
+    const {name, email, number, password} = this.state;
     if (name == '') {
-      this.setState({Error: 'please fill the first name'});
-    } else if (lname == '') {
-      this.setState({Error: 'please fill the last name'});
+      this.setState({Error: 'please fill your Full Name'});
+    } else if (email == '') {
+      this.setState({Error: 'please fill your E-Mail'});
+    } else if (number == '') {
+      this.setState({Error: 'please fill your Mobile Number'});
+    } else if (number.length < 10) {
+      this.setState({Error: 'Please Enter standard 10 digit number'});
     } else if (password == '') {
-      this.setState({Error: 'please fill the password'});
-    } else if (password.length < 5) {
-      this.setState({Error: 'password  must be more than 5'});
+      this.setState({Error: 'please fill your desired Password'});
+    } else if (password.length < 6) {
+      this.setState({Error: 'password  must be more than 6 letters'});
     } else {
       this.setState({Error: 'Sign up successfully'});
     }
@@ -45,16 +50,17 @@ export default class App extends Component<{}> {
           source={require('../Movies/images/register_top.png')}
           resizeMode="stretch"
           style={styles.image}>
-        <Image source={require('../Movies/images/image logo.png')}>
-        </Image>
         </ImageBackground>
+        <Image source={require('../Movies/images/image123.png')} style={styles.logo}>
+        </Image>
         <Text>{this.state.Error}</Text>
-        <TextInput
-          placeholder="full Name"
-          style={styles.myText}
-          onChangeText={fname => this.setState({fname})}
-        />
+
         <View style={styles.textbox}>
+        <TextInput
+          placeholder="Full Name"
+          style={styles.myText}
+          onChangeText={name => this.setState({name})}
+        />
         <TextInput
           placeholder="E-Mail"
           style={styles.myText}
@@ -62,9 +68,9 @@ export default class App extends Component<{}> {
         />
 
         <TextInput
-          placeholder="Mobile No."
+          placeholder="Mobile Number"
           style={styles.myText}
-          onChangeText={password => this.setState({password})}
+          onChangeText={number => this.setState({number})}
         />
 
         <TextInput
@@ -87,13 +93,36 @@ export default class App extends Component<{}> {
             style={{
               color: 'white',
               textAlign: 'center',
-              fontSize: 15,
+              fontSize: 17,
               fontWeight: 'bold',
             }}>
             SIGNUP
           </Text>
         </TouchableOpacity>
+
+        <Text>Or</Text>
+        <TouchableOpacity
+          onPress={this.myFun}
+          style={{
+            borderWidth: 0.2,
+            margin: 10,
+            padding: 10,
+            width: '90%',
+            borderRadius: 40,
+          }}>
+          <Text
+            style={{
+              color: 'black',
+              textAlign: 'center',
+              fontSize: 17,
+            }}>
+            SignUp with Google
+          </Text>
+        </TouchableOpacity>
       </View>
+       <Text style={{
+          bottom:'20',
+       }}>Already have an account ? </Text>
       </View>
     );
   }
@@ -106,13 +135,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
     textbox: {
-    top:50,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    width: '90%',
   },
    image: {
-    flex: 1,
+    //flex: 1,
     justifyContent: 'center',
     position: 'absolute',
     height: '65%',
@@ -121,10 +150,11 @@ const styles = StyleSheet.create({
     right:0,
   },
   logo:{
-    justifyContent:'center',
+    top: 65,
+    justifyContent: 'center',
     alignContent:'center',
-    height: 150,
-    width: 150,
+    height: 170,
+    width: 170,
   },
   myText: {
     borderWidth: 1,
@@ -133,5 +163,8 @@ const styles = StyleSheet.create({
     padding: 10,
     width: '90%',
     borderRadius: 40,
+    textAlign: 'center',
+    fontSize: 15,
+    fontWeight: 'bold',
   },
 });
