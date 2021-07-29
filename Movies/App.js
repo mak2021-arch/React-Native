@@ -1,10 +1,13 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable prettier/prettier */
 /* eslint-disable eqeqeq */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
+import Hyperlink from 'react-native-hyperlink';
 import {
   StyleSheet,
   ImageBackground,
@@ -122,7 +125,8 @@ export default class App extends Component<{}> {
       </View>
        <Text style={{
           bottom:'20',
-       }}>Already have an account ? </Text>
+       }}>Already have an account ?<Hyperlink linkDefault={ true } Text style={ { fontSize: 15, color:#FF8C00 } }>Sign In </Hyperlink>
+       </Text>
       </View>
     );
   }
