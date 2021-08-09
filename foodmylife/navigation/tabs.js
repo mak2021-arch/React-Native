@@ -9,15 +9,16 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import {View, Image, TouchableOpacity} from 'react-native';
-import {createBottomTabNavigator, BottomTabBar} from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator, BottomTabBar, NavigationContainer} from '@react-navigation/bottom-tabs';
 
-import {Home} from '../screens/Home';
+import Home from '../screens/Home';
 import {icons, COLORS} from '../constants';
 
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
     return (
+        <NavigationContainer>
         <Tab.Navigator 
         tabBarOptions={{
             showLabel: false
@@ -95,6 +96,7 @@ const Tabs = () => {
                 }}
             />
         </Tab.Navigator>
+        </NavigationContainer>
     );
 };
 

@@ -20,39 +20,38 @@ import {icons, COLORS, SIZES} from '../constants';
 
 const Home = () => {
 
-function renderHeader() {
-    return (
-        <View style={{ flexDirection: 'row', flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Image source={require('../icons/new_logo.png')}>
-        </Image>
-        </View>
-    );
-}
-function renderCategories() {
-  const renderItem = ({item}) => {
-    return (
-      <TouchableOpacity>
-      <View>
+// function renderHeader() {
+//     return (
+//         <View style={{ flexDirection: 'row', flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+//             <Image source={require('../icons/new_logo.png')}>
+//         </Image>
+//         </View>
+//     );
+// }
+// function renderCategories() {
+//   const renderItem = ({item}) => {
+//     return (
+//       <TouchableOpacity>
+//       <View>
 
-      </View>
-      </TouchableOpacity>
-    );
-  };
+//       </View>
+//       </TouchableOpacity>
+//     );
+//   };
 
   return (
     <View>
       <Text> Popular Recipe</Text>
 
-      <FlatList
+      {/* <FlatList
           data={categories}
           horizontal
           showsHorizontalScrollIndicator={false}
-          keyExtractor={item => '${item.id}'}
+          keyExtractor={item => {item.id}}
           renderItem={renderItem}
-      />
+      /> */}
     </View>
   );
-}
 };
 
 export default Home;
