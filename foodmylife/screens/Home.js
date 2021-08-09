@@ -1,3 +1,4 @@
+/* eslint-disable eol-last */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable eslint-comments/no-unused-disable */
 /* eslint-disable prettier/prettier */
@@ -27,10 +28,31 @@ function renderHeader() {
         </View>
     );
 }
+function renderCategories() {
+  const renderItem = ({item}) => {
+    return (
+      <TouchableOpacity>
+      <View>
+
+      </View>
+      </TouchableOpacity>
+    );
+  };
 
   return (
-  <SafeAreaView>
-    {renderHeader()}
-  </SafeAreaView>
+    <View>
+      <Text> Popular Recipe</Text>
+
+      <FlatList
+          data={categories}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={item => '${item.id}'}
+          renderItem={renderItem}
+      />
+    </View>
   );
+}
 };
+
+export default Home;

@@ -8,9 +8,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import Tabs from './navigation/tabs';
 import {Home} from './screens/Home';
 
-const stack = createStackNavigator();
+
 
 const App = () => {
+  const Stack = createStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -24,3 +25,5 @@ const App = () => {
     </NavigationContainer>
   );
 };
+
+export default App;
